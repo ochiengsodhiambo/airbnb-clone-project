@@ -103,6 +103,22 @@ transaction_date – date/time of payment
 A payment belongs to a booking.
 A payment is linked to a user (guest).
 
+## Feature Breakdown
+# User Management
+This feature provides secure registration, authentication, and profile management for guests, hosts, and admins. It ensures users can safely access their accounts, manage their personal information, and interact with the platform according to their roles.
 
+# Property Management
+Hosts can create, update, and retrieve property listings with details such as descriptions, locations, and pricing. This enables the platform to showcase available rentals to guests in a structured and searchable way.
 
+# Booking System
+Guests can reserve properties by specifying dates, number of guests, and other booking details. This system manages availability, prevents conflicts, and ensures smooth scheduling between hosts and guests.
+
+# Payment Processing
+A secure payment integration allows guests to complete transactions for bookings using methods such as credit cards or PayPal/Stripe. It records payment details, ensures financial accountability, and improves user trust.
+
+# Review System
+Guests can leave reviews and ratings for properties they’ve stayed in, helping future users make informed decisions. This feature adds transparency, builds trust, and creates a feedback loop for hosts to improve their listings.
+
+# Data Optimization
+Efficient data storage and retrieval mechanisms (e.g., indexing, caching, and query optimization) ensure the platform runs smoothly under heavy usage. This feature improves scalability and guarantees quick responses to user requests.
   
