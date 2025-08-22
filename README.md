@@ -154,4 +154,19 @@ Why it’s crucial: Enables quick detection and response to security breaches, h
 # 8. Data Privacy & Compliance
 What: Follow GDPR-like principles by allowing users to manage their personal data, consent to usage, and request deletion when needed.
 Why it’s crucial: Builds trust with users and ensures the platform can operate legally in regions with strict data protection laws.
-  
+
+## CI/CD Pipeline
+# What they are:
+CI/CD (Continuous Integration and Continuous Deployment) pipelines are automated workflows that manage how code changes are tested, built, and deployed. Continuous Integration (CI) ensures that every code update is automatically tested and integrated into the shared codebase, while Continuous Deployment (CD) automates pushing the tested code into staging or production environments.
+
+# Why they are significant:
+They reduce human error by automating repetitive steps like testing and deployment.
+They ensure the application is always in a deployable state, improving reliability.
+They enable faster development cycles, so new features, bug fixes, and security patches reach users more quickly.
+They improve team collaboration, as developers can confidently push changes knowing they will be validated automatically.
+# Tools that have been used:
+GitHub Actions – for automating CI/CD workflows directly in GitHub.
+Docker – to package applications into containers for consistent deployment across environments.
+Jenkins – a widely used CI/CD automation server.
+GitLab CI/CD – integrated with GitLab repositories for seamless pipelines.
+
