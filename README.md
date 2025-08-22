@@ -6,18 +6,13 @@ including user authentication, property listings, booking functionality, and int
 The project is intended as a hands-on exercise to practice modern web development skills and geospatial data integration.
 
 ## Goals
-- Build a scalable and responsive Airbnb-style web application.
-- Practice full-stack development using modern frameworks and tools.
-- Integrate interactive maps and location-based features (with support for other spatial APIs).
-- Strengthen understanding of database design, API development, and UI/UX best practices.
+- User Management: Implement a secure system for user registration, authentication, and profile management.
+- Property Management: Develop features for property listing creation, updates, and retrieval.
+- Booking System: Create a booking mechanism for users to reserve properties and manage booking details.
+- Payment Processing: Integrate a payment system to handle transactions and record payment details.
+- Review System: Allow users to leave reviews and ratings for properties.
+- Data Optimization: Ensure efficient data retrieval and storage through database optimizations.
 
-## Tech Stack
-- **Frontend**: React / Next.js, Tailwind CSS, Mapbox or Leaflet for maps
-- **Backend**: Node.js, Express.js
-- **Database**: PostgreSQL (with PostGIS for spatial data) or MongoDB
-- **Authentication**: NextAuth / JWT
-- **Geospatial Tools**: Mapbox API
-- **Deployment**: Vercel (frontend), Render/Heroku/Docker (backend)
 
 ##  Team Roles
 - **Product Owner (PO)** – Defines project vision and goals, manages backlog, and ensures alignment with user needs and priorities.  
@@ -28,5 +23,86 @@ The project is intended as a hands-on exercise to practice modern web developmen
 - **Software Developers (Frontend & Backend)** – Write, test, and maintain code. Frontend focuses on UI and interactions; backend focuses on API, business logic, and database operations.  
 - **QA Engineer / Tester** – Ensures software quality through testing and verification, aligns product with user and technical expectations.  
 - **DevOps Engineer** *(optional depending on scale)* – Manages infrastructure, CI/CD pipelines, deployment, and reliability.
+
+## Technology Stack
+- Django: A high-level Python web framework used for building the RESTful API.
+- Django REST Framework: Provides tools for creating and managing RESTful APIs.
+- PostgreSQL: A powerful relational database used for data storage.
+- GraphQL: Allows for flexible and efficient querying of data.
+- Celery: For handling asynchronous tasks such as sending notifications or processing payments.
+- Redis: Used for caching and session management.
+- Docker: Containerization tool for consistent development and deployment environments.
+- CI/CD Pipelines: Automated pipelines for testing and deploying code changes.
+
+##  Database Design
+## 1.  User
+Represents both guests and hosts.
+Fields:
+id – unique identifier
+name – full name of the user
+email – unique email address (for login/notifications)
+role – guest, host, or admin
+created_at – account creation date
+
+# Relationships:
+A user (host) can create multiple properties.
+A user (guest) can make multiple bookings.
+A user can leave multiple reviews.
+A user can make multiple payments.
+
+## 2. Property
+Represents a rental listing created by a host.
+Fields:
+id – unique identifier
+title – name of the property (e.g., "Cozy Beach House")
+description – detailed description
+location – address or coordinates (can be PostGIS field)
+price_per_night – rental price
+
+# Relationships:
+A property belongs to a user (host).
+A property can have multiple bookings.
+A property can have multiple reviews.
+
+## 3. Booking
+Represents a reservation made by a guest for a property.
+Fields:
+id – unique identifier
+check_in_date – start date of stay
+check_out_date – end date of stay
+status – pending, confirmed, cancelled, completed
+total_price – calculated cost of the booking
+
+# Relationships:
+A booking belongs to a user (guest).
+A booking belongs to a property.
+A booking can be associated with one payment.
+
+## 4. Review
+Represents feedback left by a guest about a property.
+Fields:
+id – unique identifier
+rating – numeric value (e.g., 1–5 stars)
+comment – guest’s written feedback
+created_at – timestamp of review
+
+# Relationships:
+A review belongs to a user (guest).
+A review belongs to a property.
+
+## 5. Payment
+Represents a financial transaction for a booking.
+Fields:
+id – unique identifier
+amount – payment amount
+payment_method – e.g., credit card, PayPal, Stripe
+status – pending, successful, failed, refunded
+transaction_date – date/time of payment
+
+# Relationships:
+A payment belongs to a booking.
+A payment is linked to a user (guest).
+
+
 
   
