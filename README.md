@@ -38,11 +38,11 @@ The project is intended as a hands-on exercise to practice modern web developmen
 ## 1.  User
 Represents both guests and hosts.
 Fields:
-id – unique identifier
-name – full name of the user
-email – unique email address (for login/notifications)
-role – guest, host, or admin
-created_at – account creation date
+- id – unique identifier
+- name – full name of the user
+- email – unique email address (for login/notifications)
+- role – guest, host, or admin
+- created_at – account creation date
 
 # Relationships:
 A user (host) can create multiple properties.
@@ -53,11 +53,11 @@ A user can make multiple payments.
 ## 2. Property
 Represents a rental listing created by a host.
 Fields:
-id – unique identifier
-title – name of the property (e.g., "Cozy Beach House")
-description – detailed description
-location – address or coordinates (can be PostGIS field)
-price_per_night – rental price
+- id – unique identifier
+- title – name of the property
+- description – detailed description
+- location – address or coordinates
+- price_per_night – rental price
 
 # Relationships:
 A property belongs to a user (host).
@@ -67,11 +67,11 @@ A property can have multiple reviews.
 ## 3. Booking
 Represents a reservation made by a guest for a property.
 Fields:
-id – unique identifier
-check_in_date – start date of stay
-check_out_date – end date of stay
-status – pending, confirmed, cancelled, completed
-total_price – calculated cost of the booking
+- id – unique identifier
+- check_in_date – start date of stay
+- check_out_date – end date of stay
+- status – pending, confirmed, cancelled, completed
+- total_price – calculated cost of the booking
 
 # Relationships:
 A booking belongs to a user (guest).
@@ -81,10 +81,10 @@ A booking can be associated with one payment.
 ## 4. Review
 Represents feedback left by a guest about a property.
 Fields:
-id – unique identifier
-rating – numeric value (e.g., 1–5 stars)
-comment – guest’s written feedback
-created_at – timestamp of review
+- id – unique identifier
+- rating – numeric value (e.g., 1–5 stars)
+- comment – guest’s written feedback
+- created_at – timestamp of review
 
 # Relationships:
 A review belongs to a user (guest).
@@ -93,11 +93,11 @@ A review belongs to a property.
 ## 5. Payment
 Represents a financial transaction for a booking.
 Fields:
-id – unique identifier
-amount – payment amount
-payment_method – e.g., credit card, PayPal, Stripe
-status – pending, successful, failed, refunded
-transaction_date – date/time of payment
+- id – unique identifier
+- amount – payment amount
+- payment_method – e.g., credit card, PayPal, Stripe
+- status – pending, successful, failed, refunded
+- transaction_date – date/time of payment
 
 # Relationships:
 A payment belongs to a booking.
