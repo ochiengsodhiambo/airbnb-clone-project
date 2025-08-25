@@ -44,7 +44,7 @@ Fields:
 - role – guest, host, or admin
 - created_at – account creation date
 
-# Relationships:
+## Relationships:
 A user (host) can create multiple properties.
 A user (guest) can make multiple bookings.
 A user can leave multiple reviews.
@@ -59,7 +59,7 @@ Fields:
 - location – address or coordinates
 - price_per_night – rental price
 
-# Relationships:
+## Relationships:
 A property belongs to a user (host).
 A property can have multiple bookings.
 A property can have multiple reviews.
@@ -73,7 +73,7 @@ Fields:
 - status – pending, confirmed, cancelled, completed
 - total_price – calculated cost of the booking
 
-# Relationships:
+## Relationships:
 A booking belongs to a user (guest).
 A booking belongs to a property.
 A booking can be associated with one payment.
@@ -86,7 +86,7 @@ Fields:
 - comment – guest’s written feedback
 - created_at – timestamp of review
 
-# Relationships:
+## Relationships:
 A review belongs to a user (guest).
 A review belongs to a property.
 
@@ -99,72 +99,72 @@ Fields:
 - status – pending, successful, failed, refunded
 - transaction_date – date/time of payment
 
-# Relationships:
+## Relationships:
 A payment belongs to a booking.
 A payment is linked to a user (guest).
 
-## Feature Breakdown
-# User Management
+# Feature Breakdown
+## User Management
 This feature provides secure registration, authentication, and profile management for guests, hosts, and admins. It ensures users can safely access their accounts, manage their personal information, and interact with the platform according to their roles.
 
-# Property Management
+## Property Management
 Hosts can create, update, and retrieve property listings with details such as descriptions, locations, and pricing. This enables the platform to showcase available rentals to guests in a structured and searchable way.
 
-# Booking System
+## Booking System
 Guests can reserve properties by specifying dates, number of guests, and other booking details. This system manages availability, prevents conflicts, and ensures smooth scheduling between hosts and guests.
 
-# Payment Processing
+## Payment Processing
 A secure payment integration allows guests to complete transactions for bookings using methods such as credit cards or PayPal/Stripe. It records payment details, ensures financial accountability, and improves user trust.
 
-# Review System
+## Review System
 Guests can leave reviews and ratings for properties they’ve stayed in, helping future users make informed decisions. This feature adds transparency, builds trust, and creates a feedback loop for hosts to improve their listings.
 
-# Data Optimization
+## Data Optimization
 Efficient data storage and retrieval mechanisms (e.g., indexing, caching, and query optimization) ensure the platform runs smoothly under heavy usage. This feature improves scalability and guarantees quick responses to user requests.
 
 ## API Security
-# 1. Authentication
+### 1. Authentication
 What: Use secure authentication protocols (e.g., JWT or OAuth2) with strong password hashing (e.g., bcrypt/Argon2) and optional multi-factor authentication (MFA).
 Why it’s crucial: Protects user accounts from unauthorized access, ensuring sensitive data like personal info and booking history remain private.
 
-# 2. Authorization
+### 2. Authorization
 What: Implement role-based access control (RBAC), so different roles (guest, host, admin) only access permitted resources and actions.
 Why it’s crucial: Prevents unauthorized users (e.g., guests) from performing admin or host-only actions such as managing other users’ properties or viewing restricted data.
 
-# 3. Data Encryption
+### 3. Data Encryption
 What: Use HTTPS/TLS for data in transit and encrypt sensitive data at rest (e.g., payment details, passwords).
 Why it’s crucial: Protects user information and financial details from being intercepted or leaked, maintaining trust in the platform.
 
-# 4. Secure Payments
+### 4. Secure Payments
 What: Integrate with trusted payment gateways (e.g., Stripe, PayPal) that comply with PCI DSS standards, and never store raw credit card details in the system.
 Why it’s crucial: Reduces liability, prevents financial fraud, and ensures user confidence in booking transactions.
 
-# 5. Input Validation & Sanitization
+### 5. Input Validation & Sanitization
 What: Validate all user input to prevent SQL injection, XSS (Cross-Site Scripting), and CSRF (Cross-Site Request Forgery) attacks.
 Why it’s crucial: Ensures attackers cannot manipulate queries, inject scripts, or exploit vulnerabilities to gain access or corrupt data.
 
-# 6. Rate Limiting & Throttling
+### 6. Rate Limiting & Throttling
 What: Apply request throttling (e.g., via Redis or Django REST Framework throttling) to prevent brute-force attacks and API abuse.
 Why it’s crucial: Protects against denial-of-service (DoS) attacks, credential stuffing, and prevents excessive resource consumption by malicious actors.
 
-# 7. Logging & Monitoring
+### 7. Logging & Monitoring
 What: Implement centralized logging and monitoring tools to detect suspicious activities, failed login attempts, and unusual API usage.
 Why it’s crucial: Enables quick detection and response to security breaches, helping minimize potential damage.
 
-# 8. Data Privacy & Compliance
+### 8. Data Privacy & Compliance
 What: Follow GDPR-like principles by allowing users to manage their personal data, consent to usage, and request deletion when needed.
 Why it’s crucial: Builds trust with users and ensures the platform can operate legally in regions with strict data protection laws.
 
 ## CI/CD Pipeline
-# What they are:
+### What they are:
 CI/CD (Continuous Integration and Continuous Deployment) pipelines are automated workflows that manage how code changes are tested, built, and deployed. Continuous Integration (CI) ensures that every code update is automatically tested and integrated into the shared codebase, while Continuous Deployment (CD) automates pushing the tested code into staging or production environments.
 
-# Why they are significant:
+### Why they are significant:
 They reduce human error by automating repetitive steps like testing and deployment.
 They ensure the application is always in a deployable state, improving reliability.
 They enable faster development cycles, so new features, bug fixes, and security patches reach users more quickly.
 They improve team collaboration, as developers can confidently push changes knowing they will be validated automatically.
-# Tools that have been used:
+### Tools that have been used:
 GitHub Actions – for automating CI/CD workflows directly in GitHub.
 Docker – to package applications into containers for consistent deployment across environments.
 Jenkins – a widely used CI/CD automation server.
